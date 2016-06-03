@@ -1,0 +1,16 @@
+<annuaire>
+	<categorie>
+		<nom> </nom>
+		<annonce>
+			<nom> </nom>
+			<adresse> 
+				<rue> </rue>
+				<ville> </ville>
+				<cp> </cp>
+			</adresse>
+			<telephone> </telephone>
+		</annonce>
+	</categorie>
+</annuaire>
+
+
