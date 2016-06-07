@@ -1,3 +1,4 @@
+package beans;
 
 public class Annonce {
 	private String name;
