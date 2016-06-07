@@ -16,27 +16,18 @@ import dao.CategorieDao;
 
 public class Annuaire extends HttpServlet{
 
-	
-	List<Categorie> categories;
-	File fXmlFile;
-    private AnnonceDao annonceDAO;
-    private CategorieDao categorieDAO;
+	 DAOFactory dao =DAOFactory.getInstance();
+     AnnonceDao annonceDAO = (AnnonceDao) dao.getAnnonceDao();
+     CategorieDao categorieDAO = (CategorieDao) dao.getCategorieDao();
 
-    public static final String CONF_DAO_FACTORY = "daofactory";
 
 	
 	public  Annuaire(){
-		categories = new ArrayList<Categorie>();
 		
 	 
 		
 	}
-	// (DAOFactory) getServletContext().getAttribute( CONF_DAO_FACTORY ) ).getCategorieDao()
-    public void init() throws ServletException {
-        this.categorieDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getCategorieDao();
-        this.annonceDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getAnnonceDao();
 
-    }
 	public void createCategory(String newCategory) throws SAXException, IOException, ParserConfigurationException{
 		// create new categorie
 		Categorie categorie = new Categorie();
