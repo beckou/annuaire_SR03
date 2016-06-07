@@ -3,12 +3,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Categorie {
-
+	private Long Id;
 	private String Name;
-	private List<Annonce> annonce;
 
 	public  Categorie(){
-		annonce = new ArrayList<Annonce>();
 	}	
+	
+	public Long getId() {
+		return Id;
+	}
+	
+	public String getName() {
+		return Name;
+	}
+	
+	public void setId(long l) {
+		Id = l;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
 	
 }
