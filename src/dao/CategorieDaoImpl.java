@@ -24,6 +24,9 @@ public class CategorieDaoImpl implements CategorieDao{
     private static final String SQL_DELETE_PAR_NOM = "DELETE FROM Categorie WHERE nomCategorie = ?";
     private static final String SQL_MODIFIER_PAR_NOM = "UPDATE Categorie SET nomCategorie = ? WHERE nomCategorie = ?  ";
     private static final String SQL_SELECT_PAR_NOM = "SELECT * FROM Categorie WHERE nomCategorie = ?";
+    private static final String SQL_DELETE_PAR_ID = "DELETE FROM Categorie WHERE idCategorie = ?";
+    private static final String SQL_MODIFIER_PAR_ID = "UPDATE Categorie SET nomCategorie = ? WHERE idCategorie = ?  ";
+    private static final String SQL_SELECT_PAR_ID = "SELECT * FROM Categorie WHERE idCategorie = ?";
 
 	private DAOFactory daoFactory;
  //   private static final String SQL_INSERT = "INSERT INTO Answers (idAnswer,  idQuest, intitule, status) VALUES (?, ?, ?, ?)";
