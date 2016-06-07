@@ -8,8 +8,9 @@ public class CategorieDaoImpl implements CategorieDao{
 	
 	private DAOFactory daoFactory;
  //   private static final String SQL_INSERT = "INSERT INTO Answers (idAnswer,  idQuest, intitule, status) VALUES (?, ?, ?, ?)";
-
-	
+//
+//	idCategorie
+//	nomCategorie
 	
 	@Override
 	public void creer(Categorie categorie) throws DAOException {
