@@ -2,27 +2,18 @@ package beans;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import javax.lang.model.element.Element;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import dao.DAOFactory;
-import com.sun.corba.se.impl.orbutil.graph.Node;
 import dao.AnnonceDao;
 import dao.CategorieDao;
 
-@WebServlet("/Annuaire")
 public class Annuaire extends HttpServlet{
 
 	
