@@ -42,14 +42,15 @@ public class Annuaire extends HttpServlet{
 	}
 	// (DAOFactory) getServletContext().getAttribute( CONF_DAO_FACTORY ) ).getCategorieDao()
     public void init() throws ServletException {
-        this.categorieDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY))).getCategorieDao();
-        this.annonceDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY))).getAnnonceDao();
+        this.categorieDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getCategorieDao();
+        this.annonceDAO = ((DAOFactory) getServletContext().getAttribute(CONF_DAO_FACTORY)).getAnnonceDao();
 
     }
 	public void createCategory(String newCategory) throws SAXException, IOException, ParserConfigurationException{
 		// create new categorie
-
-		
+		Categorie categorie = new Categorie();
+		categorie.setName(newCategory);
+		categorieDAO.creer(categorie);
 	}
 	
 	public void modifyCategory(String category){

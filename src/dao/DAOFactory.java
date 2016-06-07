@@ -95,4 +95,9 @@ public class DAOFactory {
    return new CategorieDaoImpl( this );
 }
 
+public AnnonceDao getAnnonceDao() {
+	// TODO Auto-generated method stub
+	   return new AnnonceDaoImpl( this );
+}
+
 }
