@@ -7,7 +7,6 @@ import static dao.DAOUtilitaire.initialisationRequetePreparee;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.joda.time.DateTime;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;

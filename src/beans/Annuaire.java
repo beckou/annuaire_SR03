@@ -4,17 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.xml.parsers.ParserConfigurationException;
 
-import org.xml.sax.SAXException;
+
 
 import dao.DAOFactory;
 import dao.AnnonceDao;
 import dao.CategorieDao;
 
-public class Annuaire extends HttpServlet{
+public class Annuaire {
 
 	 DAOFactory dao =DAOFactory.getInstance();
      AnnonceDao annonceDAO = (AnnonceDao) dao.getAnnonceDao();
@@ -28,7 +25,7 @@ public class Annuaire extends HttpServlet{
 		
 	}
 
-	public void createCategory(String newCategory) throws SAXException, IOException, ParserConfigurationException{
+	public void createCategory(String newCategory){
 		// create new categorie
 		Categorie categorie = new Categorie();
 		categorie.setName(newCategory);
