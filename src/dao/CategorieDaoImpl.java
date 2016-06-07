@@ -7,7 +7,6 @@ public class CategorieDaoImpl implements CategorieDao{
 	
 	
 	private DAOFactory daoFactory;
-    private int noOfRecords;
  //   private static final String SQL_INSERT = "INSERT INTO Answers (idAnswer,  idQuest, intitule, status) VALUES (?, ?, ?, ?)";
 
 	
