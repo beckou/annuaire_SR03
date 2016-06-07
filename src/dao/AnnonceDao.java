@@ -10,9 +10,9 @@ public interface AnnonceDao {
 	  
 	void creer( Annonce annonce ) throws DAOException;
   
-	void modifier (Annonce annonce ) throws DAOException;
+	void modifier (Long AnnonceId,String name, String tel ) throws DAOException;
 	
-	void supprimer ( Annonce annonce) throws DAOException;
+	void supprimer ( Long id) throws DAOException;
 	
 	Annonce trouver( Addresse add ) throws DAOException;
 

@@ -22,7 +22,7 @@ public class AnnonceDaoImpl implements AnnonceDao{
     private static final String SQL_DELETE_PAR_ID = "DELETE FROM Annonce WHERE idAnnonce = ?";
     private static final String SQL_SELECT_PAR_CATEGORIE = "SELECT * FROM Annonce WHERE idCategorie = ?";
     private static final String SQL_SELECT_PAR_ADRESSE = "SELECT * FROM Annonce WHERE idAdresse = ?";
-
+    private static final String SQL_MODIFY = "UPDATE Annonce SET nomAnnonce = ? telephone = ? WHERE idAnnonce = ?  ";
     
 //	idAnnonce
 //	idCategorie
@@ -75,16 +75,55 @@ public class AnnonceDaoImpl implements AnnonceDao{
 	}
 
 	@Override
-	public void modifier(Annonce annonce) throws DAOException {
+	public void modifier(Long AnnonceId, String name, String tel) throws DAOException {
 		// TODO Auto-generated method stub
+		
+		
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet valeursAutoGenerees = null;
+
+        try {
+            connexion = (Connection) daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_MODIFY, false, name,tel, AnnonceId);
+            int statut = preparedStatement.executeUpdate();
+            if ( statut == 0 ) {
+                throw new DAOException( "Échec de la création de la question, aucune ligne ajoutée dans la table." );
+            }
+
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( valeursAutoGenerees, preparedStatement, connexion );
+        }
+		
 		
 	}
 
 	@Override
-	public void supprimer(Annonce annonce) throws DAOException {
+	public void supprimer(Long id) throws DAOException {
 		// TODO Auto-generated method stub
-		
+        Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connexion = (Connection) daoFactory.getConnection();
+            preparedStatement = initialisationRequetePreparee( connexion, SQL_DELETE_PAR_ID, true,id );
+            int statut = preparedStatement.executeUpdate();
+            if ( statut == 0 ) {
+                throw new DAOException( "Échec de la suppression du client, aucune ligne supprimée de la table." );
+            } else {
+              //  user.setId( null );
+            }
+        } catch ( SQLException e ) {
+            throw new DAOException( e );
+        } finally {
+            fermeturesSilencieuses( preparedStatement, connexion );
+        }
 	}
+	
+	
+	
 
 	@Override
 	public Annonce trouver(Addresse add) throws DAOException {
