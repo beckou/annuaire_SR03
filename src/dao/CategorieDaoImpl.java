@@ -2,10 +2,7 @@ package dao;
 
 import static dao.DAOUtilitaire.fermeturesSilencieuses;
 import static dao.DAOUtilitaire.initialisationRequetePreparee;
-import static dao.DAOUtilitaire.fermeturesSilencieuses;
-import static dao.DAOUtilitaire.initialisationRequetePreparee;
-import static dao.DAOUtilitaire.fermeturesSilencieuses;
-import static dao.DAOUtilitaire.initialisationRequetePreparee;
+
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +11,7 @@ import org.joda.time.DateTime;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
+import dao.DAOFactory;
 
 import dao.DAOException;
 
@@ -29,9 +27,11 @@ public class CategorieDaoImpl implements CategorieDao{
 
 	private DAOFactory daoFactory;
  //   private static final String SQL_INSERT = "INSERT INTO Answers (idAnswer,  idQuest, intitule, status) VALUES (?, ?, ?, ?)";
-//
-//	idCategorie
-//	nomCategorie
+
+
+	CategorieDaoImpl( DAOFactory daoFactory ) {
+        this.daoFactory = daoFactory;
+    }
 	
 	@Override
 	public void creer(Categorie categorie) throws DAOException {

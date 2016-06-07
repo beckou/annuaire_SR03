@@ -90,4 +90,9 @@ public class DAOFactory {
 //    public ParcoursDAO getParcoursDao(){
 //    	return new ParcoursDaoImpl( this );
 //    }
+     
+   public CategorieDao getCategorieDao() {
+   return new CategorieDaoImpl( this );
+}
+
 }
