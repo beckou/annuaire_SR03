@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from AnnuaireService WSDL service -->
+
+  <service name="Annuaire" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://beans"/>
+      <parameter name="wsdlServiceElement" value="AnnuaireService"/>
+      <parameter name="schemaQualified" value="http://beans"/>
+      <parameter name="wsdlServicePort" value="Annuaire"/>
+      <parameter name="className" value="beans.Annuaire"/>
+      <parameter name="wsdlPortType" value="Annuaire"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://beans" name="createCategory" qname="operNS:createCategory" soapAction="">
+        <parameter xmlns:pns="http://beans" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:newCategory" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://beans" name="deleteCategory" qname="operNS:deleteCategory" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://beans" name="modifyCategory" qname="operNS:modifyCategory" soapAction="">
+        <parameter xmlns:pns="http://beans" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:category" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://beans" name="addAnnonce" qname="operNS:addAnnonce" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://beans" name="deleteAnnonce" qname="operNS:deleteAnnonce" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://beans" name="modifyAnnonce" qname="operNS:modifyAnnonce" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://beans" xmlns:retNS="http://beans" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchAnnonce" qname="operNS:searchAnnonce" returnQName="retNS:searchAnnonceReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://beans" name="displayAnnonces" qname="operNS:displayAnnonces" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="addAnnonce modifyCategory searchAnnonce displayAnnonces deleteAnnonce createCategory modifyAnnonce deleteCategory"/>
+
+  </service>
+</deployment>
